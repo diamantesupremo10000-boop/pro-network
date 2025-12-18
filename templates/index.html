@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>ProNetwork</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+
+<header>
+  <h1>ProNetwork</h1>
+  <p>Conecta. Comparte. Crece profesionalmente.</p>
+</header>
+
+<main>
+  <section class="new-post">
+    <form action="/post" method="POST">
+      <textarea name="content" placeholder="Comparte una idea profesional..." required></textarea>
+      <button type="submit">Publicar</button>
+    </form>
+  </section>
+
+  <section class="feed">
+    {% for post in posts %}
+      <article class="card">
+        <img src="/static/media/profile.jpg" alt="perfil">
+        <p>{{ post[1] }}</p>
+      </article>
+    {% endfor %}
+  </section>
+
+  <section class="media">
+    <video controls>
+      <source src="/static/media/demo.mp4" type="video/mp4">
+    </video>
+  </section>
+</main>
+
+<script src="/static/js/main.js"></script>
+</body>
+</html>
